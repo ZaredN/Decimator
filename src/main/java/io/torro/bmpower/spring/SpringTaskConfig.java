@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @EnableScheduling
-@ComponentScan({ ".task" })
+@ComponentScan({ "io.torro.bmpower.task" })
 public class SpringTaskConfig {
 
 }

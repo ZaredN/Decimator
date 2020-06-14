@@ -32,7 +32,9 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
     private DeviceService deviceService;
 
     @Override
-    public void onAuthenticationSuccess(final HttpServletRequest request, final HttpServletResponse response, final Authentication authentication) throws IOException {
+    public void onAuthenticationSuccess(final HttpServletRequest request,
+    		final HttpServletResponse response, 
+    		final Authentication authentication) throws IOException {
         handle(request, response, authentication);
         final HttpSession session = request.getSession(false);
         if (session != null) {
@@ -70,6 +72,7 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
 
         if (response.isCommitted()) {
             logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
+        	System.out.println("im here");
             return;
         }
         redirectStrategy.sendRedirect(request, response, targetUrl);

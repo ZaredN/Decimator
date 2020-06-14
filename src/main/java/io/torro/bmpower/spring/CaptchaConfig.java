@@ -9,7 +9,7 @@ import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-@ComponentScan(basePackages = { "com.baeldung.captcha" })
+@ComponentScan(basePackages = { "io.torro.bmpower.captcha" })
 public class CaptchaConfig {
     @Bean
     public ClientHttpRequestFactory clientHttpRequestFactory() {

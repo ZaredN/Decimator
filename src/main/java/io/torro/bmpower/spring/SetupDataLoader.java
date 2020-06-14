@@ -41,7 +41,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     @Transactional
     public void onApplicationEvent(final ContextRefreshedEvent event) {
         if (alreadySetup) {
+        	System.out.println("im here");
             return;
+            
         }
 
         // == create initial privileges

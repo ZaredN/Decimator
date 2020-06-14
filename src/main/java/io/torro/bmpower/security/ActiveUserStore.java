@@ -9,6 +9,7 @@ public class ActiveUserStore {
 
     public ActiveUserStore() {
         users = new ArrayList<String>();
+    	System.out.println("im here2");
     }
 
     public List<String> getUsers() {

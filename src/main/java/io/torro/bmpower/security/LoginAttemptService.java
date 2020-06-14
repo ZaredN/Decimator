@@ -25,8 +25,6 @@ public class LoginAttemptService {
         });
     }
 
-    //
-
     public void loginSucceeded(final String key) {
         attemptsCache.invalidate(key);
     }

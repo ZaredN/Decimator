@@ -21,8 +21,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @PropertySource({ "classpath:persistence.properties" })
-@ComponentScan({ "com.baeldung.persistence" })
-@EnableJpaRepositories(basePackages = "com.baeldung.persistence.dao")
+@ComponentScan({ "io.torro.bmpower.persistence" })
+@EnableJpaRepositories(basePackages = "io.torro.bmpower.persistence.dao")
 public class PersistenceJPAConfig {
 
     @Autowired
@@ -38,7 +38,7 @@ public class PersistenceJPAConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "com.baeldung.persistence.model" });
+        em.setPackagesToScan(new String[] { "io.torro.bmpower.persistence.model" });
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(additionalProperties());
