@@ -23,7 +23,7 @@ public class UserSecurityService implements ISecurityUserService {
     private PasswordResetTokenRepository passwordTokenRepository;
 
     // API
-
+    
     @Override
     public String validatePasswordResetToken(long id, String token) {
         final PasswordResetToken passToken = passwordTokenRepository.findByToken(token);

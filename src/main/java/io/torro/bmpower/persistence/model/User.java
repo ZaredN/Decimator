@@ -1,7 +1,6 @@
 package io.torro.bmpower.persistence.model;
 
 import java.util.Collection;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
 import org.jboss.aerogear.security.otp.api.Base32;
 
 @Entity
@@ -158,5 +156,14 @@ public class User {
 				.append(secret).append(", roles=").append(roles).append("]");
 		return builder.toString();
 	}
+
+
+
+	public static void withUsername(String user) {
+		// TODO Auto-generated method stub
+		return;
+	}
+
+
 
 }

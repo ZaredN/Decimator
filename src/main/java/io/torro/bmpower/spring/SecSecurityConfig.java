@@ -1,6 +1,7 @@
 package io.torro.bmpower.spring;
 
 import io.torro.bmpower.persistence.dao.UserRepository;
+import io.torro.bmpower.persistence.model.User;
 import io.torro.bmpower.security.CustomRememberMeServices;
 import io.torro.bmpower.security.google2fa.CustomAuthenticationProvider;
 import io.torro.bmpower.security.google2fa.CustomWebAuthenticationDetailsSource;
@@ -21,6 +22,7 @@ import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.RememberMeServices;
@@ -55,6 +57,13 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         super();
     }
 
+    @Bean
+    public UserDetailsService userDetailsService() {
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        manager.createUser(org.springframework.security.core.userdetails.User.withUsername("user").password("password").roles("USER").build());
+        return manager;
+    }
+    
     
     @Bean
     @Override
@@ -88,8 +97,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().hasAuthority("READ_PRIVILEGE")
                 .and()
             .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/homepage.html")
+                .loginPage("/login.html")
+                .defaultSuccessUrl("/homepage.html")	
                 .failureUrl("/login?error=true")
                 .successHandler(myAuthenticationSuccessHandler)
                 .failureHandler(authenticationFailureHandler)

@@ -8,7 +8,7 @@
 >
 
     <http use-expressions="true">
-        <intercept-url pattern="/login*" access="permitAll"/>
+        <intercept-url pattern="/login.html*" access="permitAll"/>
         <intercept-url pattern="/logout*" access="permitAll"/>
         <intercept-url pattern="/signin/**" access="permitAll"/>
         <intercept-url pattern="/signup/**" access="permitAll"/>
@@ -31,7 +31,7 @@
         
         <csrf disabled="true"/>
         
-        <form-login login-page='/login'
+        <form-login login-page='/login.html'
             authentication-success-handler-ref="myAuthenticationSuccessHandler"
             authentication-failure-handler-ref="authenticationFailureHandler"
             default-target-url="/homepage"/>
